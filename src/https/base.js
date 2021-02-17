@@ -1,3 +1,5 @@
 import axios from 'axios'
 
-// const randomuserApi
+export const randomuserApi = axios.create({
+    baseUrl:"/randomuser"
+})

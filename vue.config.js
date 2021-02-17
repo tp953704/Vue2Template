@@ -34,7 +34,7 @@ module.exports = {
         changOrigin: true, // 允許跨域
         pathRewrite: { // 看後台是否有，决定是否重寫
           // ["^" + process.env.VUE_APP_API_URL]: '' // 請求的時候使用這個api就可以
-          '^/api': '/'
+          '^/randomuser': '/'
         }
       }
     }

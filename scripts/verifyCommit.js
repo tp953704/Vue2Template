@@ -3,16 +3,17 @@ const msgPath = process.env.GIT_PARAMS
 const msg = require('fs').readFileSync(msgPath, 'utf-8').trim()
 
 const releaseRE = /^v\d/
-const commitRE = /^(revert: )?(feat|fix|docs|dx|refactor|perf|test|workflow|build|ci|chore|types|wip|release|deps)(\(.+\))?: .{1,50}/
-
+// 字要打 5-50個之間
+const commitRE = /^(revert: )?(feat|fix|docs|dx|refactor|perf|test|workflow|build|ci|chore|types|wip|release|deps)(\(.+\))?: .{5,50}/
+console.log(msgPath)
+console.log("開始檢核COMMIT文字是否符合規範~~")
 if (!releaseRE.test(msg) && !commitRE.test(msg)) {
-    console.log()
     console.error(
       `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red(
-        `invalid commit message format.`
+        `提交格式不符合規範`
       )}\n\n` +
         chalk.red(
-          `  Proper commit message format is required for automated changelog generation. Examples:\n\n`
+          `  可以參考以下範例:\n\n`
         ) +
         `    ${chalk.green(`feat: add 'comments' option`)}\n` +
         `    ${chalk.green(`fix: handle events on blur (close #28)`)}\n\n` +

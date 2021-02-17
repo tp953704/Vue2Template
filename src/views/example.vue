@@ -64,6 +64,7 @@ import Carousel from '@/components/boostrap4/Carousel/Carousel.vue'
 import MSwitch from '@/components/boostrap4/switch/switch.vue'
 import CheckGroup from '@/components/boostrap4/checkGroup/checkGroup.vue'
 import axios from 'axios'
+import {randomuserGet} from "../https/randomuser"
 
 export default {
   name: 'Example',
@@ -95,7 +96,7 @@ export default {
     btnClick () {
       console.log(this.inputVal)
       console.log(this.selected)
-      axios.get('/api/api')
+      randomuserGet()
         .then((res) => { console.table(res.data) })
         .catch((error) => { console.error(error) })
         .finally(() => { /* 不論失敗成功皆會執行 */ })
